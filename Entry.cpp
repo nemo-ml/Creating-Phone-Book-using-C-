@@ -36,5 +36,16 @@ void Entry::Show() const
 	//	Display remaining blanks, so that data lines up on screen
 	for (i = strlen(name) + 1; i < 20; i++)
 		std::cout.put(' ');					// Output the line of text
-	std::cout << 't'
+
+	std::cout << 't' << phoneNumber;		// Display Phone Number
+	for (i = strlen(phoneNumber) + 1; i < 20; i++)
+		std::cout.put(' ');					
+
+	std::cout << 't' << address;			// Display Address
+		std::cout << '\n';
+}
+
+const char* Entry::GetName() const			// Return the name part of an Entry
+{
+	return name;
 }
