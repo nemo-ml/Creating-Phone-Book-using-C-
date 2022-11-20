@@ -1,4 +1,4 @@
-# Creating-Phone-Book-using-C-
+# Creating-Phone-Book-using-C++ Programming Language
 * Declarations for class Entry for a phone directory
 * Definition of class Entry for a phone directory
 * Declarations for class Directory, where a directory is a collection of Entries
