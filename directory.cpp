@@ -56,5 +56,25 @@ void Directory::Remove()
 	std::cout << "\nType name to be removed, followed by <Enter>: ";
 	std::cin.getline(aName, 20);
 
-	int thisEntry = FindName(aName)
+	int thisEntry = FindName(aName);	// 
+
+	int(thisEntry == -1)
+		std::cout << aName << "not found in directory";
+	else
+	{
+		//
+		//
+		for (int j = thisEntry + 1; j < currentSize; j++)
+			entryList[j - 1] = entryList[j];
+		currentSize--;					// 
+		std::cout << "Entry Removed\n";
+	}
+}
+
+void Directory::Update()
+//
+//
+{
+	std::cout << "\n Please enter the name of the entry to be modified: ";
+
 }
