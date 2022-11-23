@@ -1,4 +1,4 @@
-//------------menu.cpp--------------
+//------------ menu.cpp --------------
 //	Main Function 
 //	Test Program and General Support Functions
 //	for phone Directory.

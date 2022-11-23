@@ -1,4 +1,4 @@
-//-------------Entry.cpp----------------
+//------------- Entry.cpp ----------------
 
 // Definition of Class Entry for a Phone Directory
 

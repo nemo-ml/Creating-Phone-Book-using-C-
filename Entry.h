@@ -1,5 +1,5 @@
 #pragma once
-//--------------------Entry.h-------------------
+//-------------------- Entry.h -------------------
 
 // Declarations for Class Entry for a Phone Directory
 

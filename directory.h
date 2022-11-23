@@ -1,4 +1,4 @@
-//-------------directory.h---------------
+//------------- directory.h ---------------
 
 // Declarations for class Directory, where a directory 
 // is a collection of Entries, declared in "ENTRY.h"
@@ -18,6 +18,9 @@ public:
 	void DisplayDirectory();		//
 
 private:
-	int maxSize,
-		currentSize;
+	int maxSize,					// 
+		currentSize;				// 
+	Entry* entryList;				// 
+	void Grow();
+	int FindName(char* aName) const;	// 
 };
