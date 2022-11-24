@@ -76,5 +76,27 @@ void Directory::Update()
 //
 {
 	std::cout << "\n Please enter the name of the entry to be modified: ";
+	char aName[20];
+	std::cin.getline(aName, 20);
+
+	int thisEntry = FindName(aName);
+
+	if (thisEntry == -1)
+		std::cout << aName << "not found in the current directory\n";
+	else
+	{
+		std::cout << "\n Current directory is: \n";
+		entryList[thisEntry].Show();		//
+
+		std::cout << "\n Replace with new Entries as follows: \n";
+		entryList[thisEntry].Load();		// 		
+	}
+}
+
+void Directory::DisplayDirectory() const
+//
+//
+{
+	if (currentSize == 0)
 
 }
