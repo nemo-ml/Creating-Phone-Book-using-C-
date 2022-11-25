@@ -98,5 +98,41 @@ void Directory::DisplayDirectory() const
 //
 {
 	if (currentSize == 0)
+	{
+		std::cout << "\n Current Direcoty is Empty \n";
+		return;
+	}
 
+	// Display a Header
+	std::cout << "\n\t***NAME***\t\t***PHONE***\t\t***ADDRESS***\n\n";
+
+	for (int i = 0; i < currentSize; i++)	//
+		entryList[i].Show();				//
+}
+
+void Directory::Grow()
+//
+//
+//
+{
+	maxSize = currentSize + 5;				//
+	Entry* newList = new Entry[maxSize];	//
+
+	for (int i = 0; i < currentSize; i++)	//
+		newList[i] = entryList[i];			//
+
+	delete[] entryList;						//
+	entryList = newList;					//
+}
+
+int Directory::FindName(char* aName) const
+//
+//
+//
+{
+	for (int i = 0; i < currentSize; i++)	//
+		if (strcmp(entryList[i].GetName(),
+			aName) == 0)
+			return i;						//
+	return -1;								//
 }
