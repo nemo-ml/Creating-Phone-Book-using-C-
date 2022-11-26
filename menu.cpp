@@ -5,7 +5,8 @@
 
 #include <cctype>							//
 #include <iostream>							//
-#include <directory.h>						//
+#include "directory.h"						//
+
 
 void ShowMenu()
 //
@@ -17,7 +18,7 @@ void ShowMenu()
 	std::cout << "\n\tU \tUpdate an Entry";
 	std::cout << "\n\tD \tDisplay the entire Directory";
 	std::cout << "\n\t? \tDisplay this menu";
-	std::cout << "\n\t\Q \tQuite";
+	std::cout << "\n\tQ \tQuite";
 }
 
 char GetAChar(const char* promptString)
@@ -25,10 +26,10 @@ char GetAChar(const char* promptString)
 //
 {
 	char response;							//
-std:cout << promptString;
-	cin >> response;						//
+    std::cout << promptString;
+	std::cin >> response;					//
 	response = toupper(response);			//
-	cin.get();								//
+	std::cin.get();							//
 	return response;
 }
 
@@ -38,11 +39,46 @@ bool Legal(char c)
 //
 
 {
-	return ((c == 'I') || (c == 'L' || (c == 'D) || (c == 'R') || (c == 'U') || 
+	return ((c == 'I') || (c == 'L')|| (c =='') || (c == 'R') || (c == 'U') || (c == '?') || (c == 'Q'));		
+}
+
+char GetCommand()
+//
+//
+//
+{
+	char cmd = GetAChar("\n\n>");				//
+
+	while (!Legal(cmd))							//
+	{											//
+		std::cout << "\nIllegal command, please try again . . .";
+		ShowMenu();
+		cmd = GetAChar("\n\n>");
+	}
+	return cmd;
 }
 
 int main()
 {
-	std::cout << " Building " << std::endl;
+	Directory d;								//
+	
+	ShowMenu();									//
+
+	char command;								//
+	do
+	{
+		command = GetCommand();					//
+		switch (command)
+		{
+		case 'I': d.insert(); break;
+		case 'L': d.Lookup(); break;
+		case 'R': d.Remove(); break;
+		case 'U': d.update(); break;
+		case 'D': d.DisplayDirectory(); break;
+		case '?': ShowMenu(); break;
+		case 'Q': '\0'; break;
+		}
+	} while (command != 'Q');
+
 	return 0;
 }
