@@ -39,7 +39,7 @@ bool Legal(char c)
 //
 
 {
-	return ((c == 'I') || (c == 'L')|| (c =='') || (c == 'R') || (c == 'U') || (c == '?') || (c == 'Q'));		
+	return ((c == 'I') || (c == 'L') || (c == 'R') || (c == 'U') || (c == 'D') || (c == '?') || (c == 'Q'));
 }
 
 char GetCommand()
@@ -52,7 +52,9 @@ char GetCommand()
 	while (!Legal(cmd))							//
 	{											//
 		std::cout << "\nIllegal command, please try again . . .";
+
 		ShowMenu();
+
 		cmd = GetAChar("\n\n>");
 	}
 	return cmd;
@@ -73,10 +75,10 @@ int main()
 		case 'I': d.insert(); break;
 		case 'L': d.Lookup(); break;
 		case 'R': d.Remove(); break;
-		case 'U': d.update(); break;
+		case 'U': d.Update(); break;
 		case 'D': d.DisplayDirectory(); break;
 		case '?': ShowMenu(); break;
-		case 'Q': '\0'; break;
+		case 'Q':  break;
 		}
 	} while (command != 'Q');
 

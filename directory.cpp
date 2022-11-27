@@ -29,7 +29,7 @@ void Directory::insert()
 		Grow();
 	entryList[currentSize++].Load();	// Read new Entry
 }
-void Directory::Lookuo() const
+void Directory::Lookup() const
 // 
 {
 	// 

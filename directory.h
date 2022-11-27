@@ -8,19 +8,20 @@
 class Directory
 {
 public:
-	Directory();					// 
-	~Directory();					// 
+	Directory();							// 
+	~Directory();							// 
 
-	void insert();					//
-	void Lookup() const;			//
-	void Remove();					//
-	void update();					//
-	void DisplayDirectory();		//
+	void insert();							//
+	void Lookup() const;					//
+	void Remove();							//
+	void Update();							//
+	void DisplayDirectory() const;			//
 
 private:
-	int maxSize,					// 
-		currentSize;				// 
-	Entry* entryList;				// 
+	int maxSize, currentSize;				// 
+
+	Entry* entryList;						// 
+
 	void Grow();
-	int FindName(char* aName) const;	// 
+	int FindName(char* aName) const;		// 
 };
