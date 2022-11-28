@@ -2,11 +2,13 @@
 // Definitions for class Directory
 
 #include <iostream>
-#include <cstring>
+#include <cstring>						// This header file defines several functions 
+										// to manipulate C strings and arrays
 #include "directory.h"
 
 
 Directory::Directory()
+
 // Constructor Created
 // Setup Empty directory of entires 
 {
@@ -16,35 +18,42 @@ Directory::Directory()
 }
 
 Directory::~Directory()
-// 
-// 
+
+// This destructor function for class Directory
+// deallocates the directory's list of Entry objects.
+
 {
 	delete[] entryList;
 }
 
 void Directory::insert()
-// 
+
+// Insert a new entry into the direrctory.
+
 {
-	if (currentSize == maxSize)			// 
+	if (currentSize == maxSize)			// If the directory is full, grow it.
 		Grow();
 	entryList[currentSize++].Load();	// Read new Entry
 }
 void Directory::Lookup() const
-// 
+
+//  Display the directory entry for a name.
+
 {
-	// 
+	// Prompt the user for a name to be looked up
+
 	char aName[20];
 	std::cout << "\tType the name to be looked up, followed by <Enter>: ";
 	std::cin.getline(aName, 20);
 
-	int thisEntry = FindName(aName);	// 
+	int thisEntry = FindName(aName);	// Locate the name in the directory
 
 	if (thisEntry == -1)
 		std::cout << aName << "not found in current directory\n";
 	else
 	{
 		std::cout << "\n Entry found: ";
-		entryList[thisEntry].Show();	// 
+		entryList[thisEntry].Show();	// display entry
 	}
 }
 
