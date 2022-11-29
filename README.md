@@ -5,7 +5,7 @@
 * Definitions for class Directory
 * Test program and general support functions for phone directory
 
-So this is my projectto learn and understand C++ better. 
+So this is my project to learn and understand C++ better. 
 I daily typed code and gettting familiar with C++ syntax to boost my confidence 
 
 Source of this work: https://www.cs.fsu.edu/~myers/cop3330/examples/phonebook/
