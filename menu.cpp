@@ -3,13 +3,15 @@
 //	Test Program and General Support Functions
 //	for phone Directory.
 
-#include <cctype>							//
-#include <iostream>							//
-#include "directory.h"						//
+#include <cctype>							// for toupper
+#include <iostream>							// for cin, cout
+#include "directory.h"						// for class Directory
 
 
 void ShowMenu()
-//
+
+// Display the main program menu
+
 {
 	std::cout << "\n\t\t***Menu Phone Directory***";
 	std::cout << "\n\tI \tInsert a new Entry into directory";
@@ -22,35 +24,38 @@ void ShowMenu()
 }
 
 char GetAChar(const char* promptString)
-//
-//
+
+// Prompt the user and get a single character, discarding the Return character.
+// Used in GetCommand
+
 {
-	char response;							//
-    std::cout << promptString;
-	std::cin >> response;					//
-	response = toupper(response);			//
-	std::cin.get();							//
+	char response;							// the char to be returned
+    std::cout << promptString;				// Prompt the user
+	std::cin >> response;					// Get a char,
+	response = toupper(response);			// and convert it to uppercase
+	std::cin.get();							// Discard newline char from input
 	return response;
 }
 
 bool Legal(char c)
-//
-//
-//
+
+// Determine if a particular character, c, corresponds to a legal menu command.  Returns true if legal, false if not.
+// Used in GetCommand
 
 {
 	return ((c == 'I') || (c == 'L') || (c == 'R') || (c == 'U') || (c == 'D') || (c == '?') || (c == 'Q'));
 }
 
 char GetCommand()
-//
-//
-//
-{
-	char cmd = GetAChar("\n\n>");				//
 
-	while (!Legal(cmd))							//
-	{											//
+// Prompts the user for a menu command until a legal command character is entered.  Return the command character.
+// Calls GetAChar, Legal, ShowMenu
+
+{
+	char cmd = GetAChar("\n\n>");				// Get a command character
+
+	while (!Legal(cmd))							// As long as it's not a legal command
+	{											// display menu and try again
 		std::cout << "\nIllegal command, please try again . . .";
 
 		ShowMenu();
@@ -62,14 +67,16 @@ char GetCommand()
 
 int main()
 {
-	Directory d;								//
+	Directory d;								// Create and initialize a new directory
 	
-	ShowMenu();									//
+	ShowMenu();									// Display the menu
 
-	char command;								//
+	char command;								// menu command entered by user
+
 	do
 	{
-		command = GetCommand();					//
+		command = GetCommand();					// Retrieve a command
+
 		switch (command)
 		{
 		case 'I': d.insert(); break;
